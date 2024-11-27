@@ -46,7 +46,7 @@ public class ApiService {
         try {
             Response<Task> taskResponse = JsonUtil.decode(result, new TypeReference<Response<Task>>() {
             });
-            if (taskResponse != null && taskResponse.getCode() == 0) {
+            if (taskResponse != null && Integer.parseInt(taskResponse.getCode()) == 0) {
                 return taskResponse.getData();
             }
         } catch (Exception e) {
