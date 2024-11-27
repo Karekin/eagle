@@ -16,15 +16,15 @@ import java.util.List;
 /**
  * Created by luxiaoxun on 2020/01/27.
  */
-public class LogProcessFunction extends BroadcastProcessFunction<LogEvent, RuleBase, LogEvent> {
-    private static final Logger logger = LoggerFactory.getLogger(LogProcessFunction.class);
+public class LogProcessFunctionByDrools extends BroadcastProcessFunction<LogEvent, RuleBase, LogEvent> {
+    private static final Logger logger = LoggerFactory.getLogger(LogProcessFunctionByDrools.class);
 
     private RuleBase latestRuleBase = null;
     private final String ruleKeyName = "logRule";
     private transient LogProcessor logProcessor = null;
     private String kafkaIndex = null;
 
-    public LogProcessFunction(RuleBase ruleBase, String kafkaIndex) {
+    public LogProcessFunctionByDrools(RuleBase ruleBase, String kafkaIndex) {
         this.latestRuleBase = ruleBase;
         this.kafkaIndex = kafkaIndex;
     }
